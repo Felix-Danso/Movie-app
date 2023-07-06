@@ -1,10 +1,18 @@
 // import './App.css';
 
 import Header from "./components/Header/Header";
-import {useAppSelector} from "./Hooks/storeHooks";
+import {useAppSelector, useAppDispatch} from "./Hooks/storeHooks";
+import {useEffect} from "react";
+import {getMovies} from "./features/movies/movieSlice";
+
 
 function App() {
     const {darkTheme} = useAppSelector((state) => state);
+    const dispatch= useAppDispatch();
+
+    useEffect(() => {
+        dispatch(getMovies())
+    },[dispatch])
 
   return (
   <div className={darkTheme ? "dark" : ""}>
