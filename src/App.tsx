@@ -18,7 +18,7 @@ function App() {
         dispatch(getMovies())
     },[dispatch])
 
-    const searchMovies = movies.data?.results.filter(movie => {
+    const searchMovies = movies.data?.results?.filter(movie => {
         if(!searchTerm.length)return movie;
         if(!movie.title)return ;
         return movie.title.toLowerCase().includes(searchTerm);
