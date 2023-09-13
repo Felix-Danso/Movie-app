@@ -1,5 +1,4 @@
 import {PayloadAction, createSlice, createAsyncThunk} from "@reduxjs/toolkit";
-import env from "react-dotenv";
 
 //Action
 export const getMovies = createAsyncThunk(
@@ -7,7 +6,7 @@ export const getMovies = createAsyncThunk(
     async (data, thunkApi) => {
         try{
             const response = await fetch (
-                `httpS://api.themoviedb.org/3/trending/all/day?api_key=${env.REACT_APP_MOVIE_KEY}`
+                `httpS://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_MOVIE_KEY}`
             );
             return await response.json();
         }catch (error: any){
